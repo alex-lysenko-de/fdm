@@ -1,7 +1,7 @@
 
 # FDM - Finite Difference Method (Wave Equation)
 
-Finite Difference Method (FDM) solver for the one-dimensional wave equation modeling vibrating string dynamics.  
+[Finite Difference Method](https://en.wikipedia.org/wiki/Finite_difference_method)(FDM) solver for the one-dimensional wave equation modeling vibrating string dynamics.  
 This Python-based simulation provides interactive visualization of string oscillations with multiple selectable initial conditions using Matplotlib.
 
 ---
@@ -18,21 +18,54 @@ The simulation demonstrates wave propagation, reflection at fixed boundaries, an
 
 ## Methodology
 
-The wave equation is discretized in space and time using a second-order accurate finite difference scheme:  
+🔁 **Wave equation:**
 
-\[
+$$
 \frac{\partial^2 u}{\partial t^2} = c^2 \frac{\partial^2 u}{\partial x^2}
-\]
+$$
 
-with boundary conditions \( u(0,t) = u(L,t) = 0 \), and specified initial conditions \( u(x,0) \) and \( \frac{\partial u}{\partial t}(x,0) \).
+**Conditions:**
+String length:
 
-Stability is ensured by respecting the Courant-Friedrichs-Lewy (CFL) condition:  
+$$
+L = 1
+$$
 
-\[
-c \frac{\Delta t}{\Delta x} \leq 1
-\]
+Wave propagation speed:
 
-The solver advances the solution in time using explicit finite difference formulas.
+$$
+c = 1
+$$
+
+Fixed ends (boundary conditions):
+
+$$
+u(0, t) = u(L, t) = 0
+$$
+
+Initial displacement:
+
+$$
+u(x, 0) = \sin(\pi x)
+$$
+
+Initial velocity:
+
+$$
+\frac{\partial u}{\partial t}(x, 0) = 0
+$$
+
+---
+
+🧮 **Finite difference method**
+We approximate the second derivatives in time and space.
+
+**Difference scheme:**
+
+$$
+u_i^{n+1} = 2 u_i^n - u_i^{n-1} + c^2 \left(\frac{\Delta t}{\Delta x}\right)^2 \left(u_{i+1}^n - 2 u_i^n + u_{i-1}^n \right)
+$$
+
 
 ---
 
@@ -68,12 +101,6 @@ python fdm.py
 
 An interactive window will open showing the vibrating string.
 Use the buttons to change initial displacement and velocity conditions dynamically.
-
-![img/Screenshot1.png](img/Screenshot1.png)
-
-![img/Screenshot2.png](img/Screenshot2.png)
-
-![img/Screenshot3.png](img/Screenshot3.png)
 
 ![img/wave.gif](img/wave.gif)
 
