@@ -74,10 +74,11 @@ u_daten = wellen_loesen(*startbedingung(aktueller_modus))
 
 def animieren(frame):
     linie.set_data(x, u_daten[frame])
-    ax.set_title(f"{aktueller_modus} — t = {frame*dt:.3f} s")
-    return linie,
+    titel = ax.set_title(f"{aktueller_modus}")
+    return linie, titel
 
-ani = animation.FuncAnimation(fig, animieren, frames=range(0, nt, 10), interval=20, blit=True)
+
+ani = animation.FuncAnimation(fig, animieren, frames=range(0, nt, 10), interval=20, blit=False)
 
 # ------------------- BUTTONS -------------------
 ax_sin = plt.axes([0.05, 0.1, 0.1, 0.075])

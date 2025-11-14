@@ -102,6 +102,10 @@ python fdm.py
 An interactive window will open showing the vibrating string.
 Use the buttons to change initial displacement and velocity conditions dynamically.
 
-![img/wave.gif](img/wave.gif)
+![1.gif](img/1.gif)
+![2.gif](img/2.gif)
+![3.gif](img/3.gif)
+![4.gif](img/4.gif)
+![5.gif](img/5.gif)
 
 
